@@ -15,12 +15,15 @@ const styles = StyleSheet.create({
 
 const QuizPage = () => {
   const [freeText, setFreeText] = useState("");
+  const [checked, setChecked] = useState("");
   const navigate = useNavigate();
-  {
-    console.log(freeText);
-  }
+
   const onSubmit = () => {
     navigate("/");
+  };
+
+  const toCheck = (option) => {
+    setChecked(option);
   };
 
   return (
@@ -32,6 +35,8 @@ const QuizPage = () => {
             { name: "second", key: "b" },
             { name: "third", key: "c" },
           ]}
+          checked={checked}
+          toCheck={toCheck}
         />
       </View>
       <Text

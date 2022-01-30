@@ -1,5 +1,3 @@
-import { useState } from "react";
-//import { RadioButton as NativeRadioButton } from "react-native-paper";
 import {
   FlatList,
   StyleSheet,
@@ -7,9 +5,8 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import theme from "../theme";
 
-//import theme from "../theme";
+import theme from "../theme";
 
 const styles = StyleSheet.create({
   radioButtonContainer: {
@@ -31,7 +28,6 @@ const styles = StyleSheet.create({
     height: 14,
     width: 14,
     borderRadius: 7,
-    //backgroundColor: "#98CFB6",
     borderWidth: 1,
     borderColor: theme.colors.divider,
   },
@@ -41,9 +37,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RadioButton = ({ style, data, ...props }) => {
-  const [checked, setChecked] = useState(null);
-
+const RadioButton = ({ style, data, checked, toCheck, ...props }) => {
   const textStyle = [styles.radioButtonText, style];
   const buttonStyle = (name) =>
     checked === name ? [styles.radioButtonChecked] : [styles.radioButtonIcon];
@@ -55,16 +49,14 @@ const RadioButton = ({ style, data, ...props }) => {
         <View style={styles.radioButtonContainer}>
           <TouchableOpacity
             onPress={() => {
-              setChecked(item.name);
+              toCheck(item.name);
             }}
             style={buttonStyle(item.name)}
             {...props}
-          >
-            {/* <View style={styles.radioButtonIcon} /> */}
-          </TouchableOpacity>
+          ></TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              setChecked(item.name);
+              toCheck(item.name);
             }}
           >
             <Text style={textStyle}>{item.name}</Text>
