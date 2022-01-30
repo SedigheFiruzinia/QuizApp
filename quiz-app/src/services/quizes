@@ -1,0 +1,24 @@
+import axios from "axios";
+
+const baseUrl = "/api/quizes";
+
+const get = async () => {
+  const response = await axios.get();
+  return response.data;
+};
+
+const create = async (text, option) => {
+  const body = {
+    text: text,
+    option: option,
+  };
+  const response = await axios.post(baseUrl, body);
+  return response.data;
+};
+
+const exportedObject = {
+  get,
+  create,
+};
+
+export default exportedObject;
