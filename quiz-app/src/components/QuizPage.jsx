@@ -6,6 +6,7 @@ import Text from "./Text";
 import RadioButton from "./RadioButton";
 import TextInput from "./TextInput";
 import Button from "./Button";
+import exportedObject from "../services/quizes";
 
 const styles = StyleSheet.create({
   container: {
@@ -18,7 +19,9 @@ const QuizPage = () => {
   const [checked, setChecked] = useState("");
   const navigate = useNavigate();
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
+    const r = await exportedObject.create(freeText, checked);
+    console.log(r);
     navigate("/");
   };
 
