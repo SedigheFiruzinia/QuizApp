@@ -6,6 +6,11 @@ quizRouter.get("/", async (request, response) => {
   response.json(quizes);
 });
 
+quizRouter.get("/:id", async (request, response) => {
+  const quizes = await quizSchema.findOne({ _id: request.params.id });
+  response.json(quizes);
+});
+
 quizRouter.post("/", async (request, response, next) => {
   const body = request.body;
   const quiz = new quizSchema({
