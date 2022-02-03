@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <Table quizes={quizes} />
+      <Table quizes={quizes} rowsNum={10} />
       {quizes.map((q) => (
         <div key={q.id}> {q.text}</div>
       ))}
