@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Table as BootstrapTable, Pagination } from "react-bootstrap";
+import { Table as BootstrapTable, Pagination, Stack } from "react-bootstrap";
 
 const Table = ({ quizes, rowsNum, ...props }) => {
   const [active, setActive] = useState(1);
@@ -27,35 +27,37 @@ const Table = ({ quizes, rowsNum, ...props }) => {
     setRows(quizes.slice((i - 1) * rowsNum, i * rowsNum));
   };
 
+  const truncate = (str) => {
+    return str.length > 10 ? str.substring(0, 7) + "..." : str;
+  };
+
   return (
-    <BootstrapTable striped bordered hover>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Selected-Option</th>
-          <th>Text-Answer</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.length !== 0 &&
-          rows.map((quiz, i) => (
-            <tr key={quiz.id}>
-              <td>1</td>
-              <td>{quiz.date}</td>
-              <td>{quiz.time}</td>
-              <td>{quiz.option}</td>
-              <td>{quiz.text}</td>
-            </tr>
-          ))}
-        <tr>
-          <td colSpan={3}>
-            <Pagination>{items}</Pagination>
-          </td>
-        </tr>
-      </tbody>
-    </BootstrapTable>
+    <Stack gap={3} className="align-items-center">
+      <BootstrapTable striped bordered hover>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Option</th>
+            <th>Text</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.length !== 0 &&
+            rows.map((quiz, i) => (
+              <tr key={quiz.id}>
+                <td>1</td>
+                <td>{quiz.date}</td>
+                <td>{quiz.time}</td>
+                <td>{quiz.option}</td>
+                <td>{truncate(quiz.text)}</td>
+              </tr>
+            ))}
+        </tbody>
+      </BootstrapTable>
+      <Pagination>{items}</Pagination>
+    </Stack>
   );
 };
 
