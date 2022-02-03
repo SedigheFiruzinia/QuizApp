@@ -13,6 +13,7 @@ function App() {
     const source = new EventSource("http://localhost:3001/api/new");
     source.onmessage = (event) => {
       const newQuiz = JSON.parse(event.data);
+      console.log(newQuiz);
       update(newQuiz);
     };
     return () => {

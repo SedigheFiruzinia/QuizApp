@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import { Table as BootstrapTable, Pagination } from "react-bootstrap";
 
 const Table = ({ quizes, rowsNum, ...props }) => {
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState(1);
   const [rows, setRows] = useState([]);
   let items = [];
 
   useEffect(() => {
-    setRows(quizes.slice(0, 10));
+    setRows(quizes.slice((active - 1) * rowsNum, active * rowsNum));
   }, [quizes]);
 
-  for (let i = 1; i <= quizes.length / 10 + 1; i++) {
+  for (let i = 1; i <= Math.ceil(quizes.length / rowsNum); i++) {
     items.push(
       <Pagination.Item
         key={i}
