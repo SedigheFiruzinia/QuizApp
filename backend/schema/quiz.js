@@ -17,6 +17,8 @@ const quizSchema = new mongoose.Schema(
 quizSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString();
+    returnedObject.date = returnedObject.createdAt.toString().substring(0, 15);
+    returnedObject.time = returnedObject.createdAt.toString().substring(16, 24);
     delete returnedObject._id;
     delete returnedObject.__v;
     delete returnedObject.updatedAt;

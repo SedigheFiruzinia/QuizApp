@@ -40,7 +40,6 @@ quizRouter.get("/new", async (request, response) => {
     console.log(newData);
     response.write("data:" + JSON.stringify(getData()));
     response.write("\n\n");
-    // newData = null;
   }, 10000);
   request.on("close", () => {
     clearInterval(eventInterval);
