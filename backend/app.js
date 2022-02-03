@@ -20,6 +20,6 @@ app.use(cors());
 app.use(express.static("build"));
 app.use(express.json());
 
-app.use("/api/quizes", quizRouter);
+app.use("/api", quizRouter);
 
 module.exports = app;
