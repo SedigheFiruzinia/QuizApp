@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
 
 const RadioButton = ({ style, data, checked, toCheck, ...props }) => {
   const textStyle = [styles.radioButtonText, style];
-  const buttonStyle = (name) =>
-    checked === name ? [styles.radioButtonChecked] : [styles.radioButtonIcon];
+  const buttonStyle = (key) =>
+    checked === key ? [styles.radioButtonChecked] : [styles.radioButtonIcon];
 
   return (
     <FlatList
@@ -49,14 +49,14 @@ const RadioButton = ({ style, data, checked, toCheck, ...props }) => {
         <View style={styles.radioButtonContainer}>
           <TouchableOpacity
             onPress={() => {
-              toCheck(item.name);
+              toCheck(item.key);
             }}
-            style={buttonStyle(item.name)}
+            style={buttonStyle(item.key)}
             {...props}
           ></TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              toCheck(item.name);
+              toCheck(item.key);
             }}
           >
             <Text style={textStyle}>{item.name}</Text>

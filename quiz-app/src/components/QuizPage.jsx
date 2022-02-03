@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
 const QuizPage = () => {
   const [freeText, setFreeText] = useState("");
-  const [checked, setChecked] = useState("");
+  const [checked, setChecked] = useState(1);
   const navigate = useNavigate();
 
   const onSubmit = async () => {
@@ -34,9 +34,10 @@ const QuizPage = () => {
       <View>
         <RadioButton
           data={[
-            { name: "first", key: "a" },
-            { name: "second", key: "b" },
-            { name: "third", key: "c" },
+            { name: "first", key: 1 },
+            { name: "second", key: 2 },
+            { name: "third", key: 3 },
+            { name: "forth", key: 4 },
           ]}
           checked={checked}
           toCheck={toCheck}
