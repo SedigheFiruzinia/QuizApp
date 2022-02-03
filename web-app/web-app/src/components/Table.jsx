@@ -39,13 +39,12 @@ const Table = ({ quizes, rowsNum, ...props }) => {
         </tr>
       </thead>
       <tbody>
-        {/* substring(0, 10) substring(11, 19)*/}
         {rows.length !== 0 &&
           rows.map((quiz, i) => (
             <tr key={quiz.id}>
               <td>1</td>
-              <td>{quiz.createdAt}</td>
-              <td>{quiz.createdAt}</td>
+              <td>{quiz.date}</td>
+              <td>{quiz.time}</td>
               <td>{quiz.option}</td>
               <td>{quiz.text}</td>
             </tr>
