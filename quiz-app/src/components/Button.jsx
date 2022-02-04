@@ -5,13 +5,10 @@ import theme from "../theme";
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    minWidth: 64,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: theme.colors.primary,
     borderRadius: theme.roundness,
+    backgroundColor: theme.colors.button,
   },
   text: {
     color: "white",

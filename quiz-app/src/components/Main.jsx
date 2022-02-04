@@ -10,11 +10,14 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.mainBackground,
     flexGrow: 1,
-    flexShrink: 1,
+    //flexShrink: 1,
   },
-  pages: {
+  content: {
+    backgroundColor: theme.colors.mainBackground,
+    display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    flexGrow: 1,
   },
 });
 
@@ -22,11 +25,13 @@ const Main = () => {
   return (
     <View style={styles.container}>
       <AppBar />
-      <Routes>
-        <Route path="/" element={<LandingPage />} exact />
-        <Route path="/quiz" element={<QuizPage />} exact />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <View style={styles.content}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} exact />
+          <Route path="/quiz" element={<QuizPage />} exact />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </View>
     </View>
   );
 };

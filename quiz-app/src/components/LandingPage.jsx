@@ -6,7 +6,13 @@ import Button from "./Button";
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: "center",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  button: {
+    paddingVertical: 15,
+    paddingHorizontal: 20,
   },
 });
 
@@ -16,12 +22,28 @@ const LandingPage = () => {
   const onSubmit = () => {
     navigate("/quiz");
   };
+
   return (
     <View style={styles.container}>
-      <Text fontWeight="bold" fontSize="heading" numberOfLines={1}>
-        Welcome
+      <Text
+        fontWeight="normal"
+        fontSize="heading"
+        numberOfLines={1}
+        style={{ marginBottom: 10 }}
+      >
+        Welcome To
       </Text>
-      <Button onPress={onSubmit}>Take Quiz</Button>
+      <Text
+        fontWeight="bold"
+        fontSize="heading"
+        numberOfLines={1}
+        style={{ marginBottom: 100 }}
+      >
+        QuizPad
+      </Text>
+      <Button onPress={onSubmit} style={styles.button}>
+        TRY NOW
+      </Button>
     </View>
   );
 };
