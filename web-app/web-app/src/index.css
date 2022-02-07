@@ -1,0 +1,55 @@
+.sideBar-heading {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 300;
+}
+.fullScreen {
+  margin-top: 5%;
+}
+.sideBar {
+  padding-top: 45px;
+  padding-left: 25px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.appBar {
+  background-color: rgba(0, 130, 230, 255) !important;
+}
+@media screen and (min-width: 570px) {
+  .sideBar {
+    height: 95vh;
+  }
+}
+
+.line {
+  border-top: 5px solid red !important;
+}
+
+/* Pagination Style */
+.page-link {
+  color: rgb(22, 28, 45);
+}
+.page-item.active .page-link {
+  background-color: rgba(221, 226, 224, 0.959);
+  border-color: rgba(221, 226, 224, 0.959);
+  color: rgb(22, 28, 45);
+}
+.page-link:hover {
+  color: rgb(22, 28, 45);
+  background-color: #e9ecef;
+  border-color: #e9ecef;
+}
+
+/* user in appbar */
+.circle {
+  height: 40px;
+  width: 40px;
+  background-color: #cdcfd4;
+  border-radius: 50%;
+  display: inline-block;
+}
+.navbar-dark .navbar-text {
+  color: rgba(0, 0, 0, 0.55);
+  font-size: large;
+  font-weight: 700;
+}

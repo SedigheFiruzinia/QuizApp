@@ -1,37 +1,28 @@
-import quizeService from "./services/quizes";
-import { useEffect, useState } from "react";
-import Table from "./components/Table";
+import React from "react";
+import { Container } from "react-bootstrap";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
-  const [quizes, setQuizes] = useState([]);
+import AppBar from "./components/AppBar";
+import About from "./components/About";
+import Data from "./components/Data";
 
-  useEffect(() => {
-    quizeService.getAll().then((q) => setQuizes(q));
-  }, []);
-
-  useEffect(() => {
-    const source = new EventSource("http://localhost:3001/api/new");
-    source.onmessage = (event) => {
-      const newQuiz = JSON.parse(event.data);
-      console.log(newQuiz);
-      update(newQuiz);
-    };
-    return () => {
-      source.close();
-    };
-  }, []);
-
-  const update = (newQuiz) => {
-    if (newQuiz) {
-      setQuizes((quizes) => quizes.concat([newQuiz]));
-    }
-  };
-
-  return (
-    <>
-      <Table quizes={quizes} rowsNum={10} />
-    </>
-  );
-}
+const App = () => (
+  <Container fluid className="px-0">
+    <AppBar />
+    <Router>
+      <Switch>
+        <Route path="/data">
+          <Data />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/">
+          <Data />
+        </Route>
+      </Switch>
+    </Router>
+  </Container>
+);
 
 export default App;
