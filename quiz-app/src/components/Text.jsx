@@ -4,7 +4,6 @@ import theme from "../theme";
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: "sans-serif",
     color: theme.colors.textPrimary,
     fontSize: theme.fontSizes.body,
     fontWeight: theme.fontWeights.normal,

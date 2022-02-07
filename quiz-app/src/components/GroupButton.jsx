@@ -1,8 +1,14 @@
 import React from "react";
-import { Text, TouchableOpacity, StyleSheet, FlatList } from "react-native";
+import {
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  FlatList,
+  View,
+} from "react-native";
 import theme from "../theme";
 
-const GroupButton = ({ style, data, selection, selected, ...props }) => {
+const GroupButton = ({ style, data, selection, selected, error, ...props }) => {
   const textStyle = [styles.text, style];
   const buttonStyle = (key) =>
     selection === key
@@ -10,18 +16,21 @@ const GroupButton = ({ style, data, selection, selected, ...props }) => {
       : [styles.button];
 
   return (
-    <FlatList
-      data={data}
-      renderItem={({ item }) => (
-        <TouchableOpacity
-          style={buttonStyle(item.key)}
-          onPress={() => selected(item.key)}
-          {...props}
-        >
-          <Text style={textStyle}>{item.name}</Text>
-        </TouchableOpacity>
-      )}
-    />
+    <View>
+      {error && <Text style={styles.error}>Answer is required</Text>}
+      <FlatList
+        data={data}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={buttonStyle(item.key)}
+            onPress={() => selected(item.key)}
+            {...props}
+          >
+            <Text style={textStyle}>{item.name}</Text>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
   );
 };
 
@@ -34,6 +43,10 @@ const styles = StyleSheet.create({
   },
   buttonSelected: {
     backgroundColor: theme.colors.borderDark,
+  },
+  error: {
+    color: theme.colors.error,
+    fontSize: theme.fontSizes.small,
   },
   text: {
     padding: 4,

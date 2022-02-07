@@ -4,18 +4,6 @@ import { useNavigate } from "react-router-native";
 import Text from "./Text";
 import Button from "./Button";
 
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  button: {
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-  },
-});
-
 const LandingPage = () => {
   const navigate = useNavigate();
 
@@ -47,5 +35,17 @@ const LandingPage = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  button: {
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+  },
+});
 
 export default LandingPage;

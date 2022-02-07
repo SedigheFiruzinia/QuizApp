@@ -5,27 +5,6 @@ import { Link } from "react-router-native";
 import theme from "../theme";
 import Text from "./Text";
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: theme.colors.appBar,
-    flexDirection: "row",
-  },
-  tabTouchable: {
-    flexGrow: 0,
-  },
-  tabContainer: {
-    paddingHorizontal: 15,
-    paddingVertical: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  tabText: {
-    color: "white",
-  },
-});
-
 const AppBarTab = ({ children, ...props }) => {
   return (
     <Link style={styles.tabTouchable} {...props}>
@@ -46,5 +25,26 @@ const AppBar = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: theme.colors.appBar,
+    flexDirection: "row",
+  },
+  tabTouchable: {
+    flexGrow: 0,
+  },
+  tabContainer: {
+    paddingHorizontal: 15,
+    paddingVertical: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  tabText: {
+    color: "white",
+  },
+});
 
 export default AppBar;

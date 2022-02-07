@@ -10,6 +10,7 @@ const theme = {
     borderDark: "#a8aeb5",
   },
   fontSizes: {
+    small: 10,
     body: 13,
     subheading: 16,
     heading: 30,
